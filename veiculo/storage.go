@@ -70,7 +70,7 @@ func (s *MySQLStorage) UpdateVeiculo(id int, veiculo *Veiculo) error {
 	}
 	return nil
 }
-func (s *MySQLStorage) Delete(id int) error {
+func (s *MySQLStorage) DeleteVeiculo(id int) error {
 	deleteSQL := "delete from veiculos where id=?"
 	stmt, err := s.dbConn.Prepare(deleteSQL)
 	if err != nil {

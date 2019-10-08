@@ -9,11 +9,11 @@ import (
 
 //owner do handler
 type Controller struct {
-	storage MySQLStorage
+	storage Storage
 }
 
 //constructor do nosso controller
-func NewVeiculo(stg MySQLStorage) *Controller {
+func NewVeiculo(stg Storage) *Controller {
 	return &Controller{
 		storage: stg,
 	}
@@ -73,7 +73,7 @@ func (ctrl *Controller) Delete(c *gin.Context) {
 		return
 	}
 	//declara a variavel e ao mesmo tempo verifica se é diferente de nil
-	if err := ctrl.storage.Delete(id); err != nil {
+	if err := ctrl.storage.DeleteVeiculo(id); err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, err)
 		return
 	}
